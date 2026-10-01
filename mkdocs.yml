@@ -1,0 +1,119 @@
+site_name: Python Handbook
+site_description: A comprehensive Python handbook for beginners to advanced developers
+site_author: Your Name
+repo_url: https://github.com/yourname/python-handbook
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+    - scheme: slate
+      primary: teal
+      accent: teal
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.tooltips
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Why Python?: getting_started/why_python.md
+      - Installation & Tooling: getting_started/installation.md
+      - Your First Program: getting_started/first_program.md
+  - Core Language:
+      - Syntax & Basic Types: core_language/syntax_basic_types.md
+      - Collections: core_language/collections.md
+      - Control Flow: core_language/control_flow.md
+      - Functions: core_language/functions.md
+      - Modules & Packages: core_language/modules_packages.md
+      - Classes & OOP: core_language/classes_oop.md
+      - Error Handling: core_language/error_handling.md
+  - Standard Library Highlights:
+      - Files & Paths: stdlib/files_paths.md
+      - Data Serialization: stdlib/serialization.md
+      - Dates & Times: stdlib/dates_times.md
+      - Concurrency Primitives: stdlib/concurrency_primitives.md
+      - Async I/O: stdlib/async_io.md
+      - Text Processing: stdlib/text_processing.md
+      - Testing & Debugging: stdlib/testing_debugging.md
+  - Popular Third‑Party Packages:
+      - Data Science: third_party/data_science.md
+      - Web APIs: third_party/web_apis.md
+      - CLI Tools: third_party/cli_tools.md
+      - Databases: third_party/databases.md
+      - DevOps: third_party/devops.md
+  - Packaging & Distribution:
+      - pyproject.toml (PEP 621): packaging/pyproject_toml.md
+      - Building Wheels & SDists: packaging/building.md
+      - Versioning & Changelog: packaging/versioning.md
+      - Publishing to PyPI: packaging/publishing.md
+  - Performance & Profiling:
+      - Timing: performance/timing.md
+      - Profiling: performance/profiling.md
+      - Optimisation Patterns: performance/optimisation.md
+  - Concurrency & Async Deep‑Dive:
+      - Thread Safety & GIL: concurrency/thread_safety.md
+      - Multiprocessing Patterns: concurrency/multiprocessing.md
+      - Advanced asyncio: concurrency/advanced_asyncio.md
+  - Type Hints & Static Analysis:
+      - Gradual Typing Basics: typing/gradual_typing.md
+      - Generics, Protocols & More: typing/advanced.md
+      - CI Integration: typing/ci_integration.md
+  - Best Practices & Style:
+      - PEP 8 & Auto‑formatting: best_practices/pep8_formatting.md
+      - Project Layout: best_practices/project_layout.md
+      - Documentation: best_practices/documentation.md
+      - Security: best_practices/security.md
+  - Project Structure & Tooling:
+      - Git Workflow: tooling/git_workflow.md
+      - CI/CD: tooling/ci_cd.md
+      - Containerisation: tooling/containerisation.md
+      - Task Runners: tooling/task_runners.md
+  - Appendices:
+      - Cheat‑Sheets: appendices/cheatsheets.md
+      - Glossary: appendices/glossary.md
+      - Further Reading: appendices/further_reading.md
+      - License & Contribution: appendices/license_contrib.md
+
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourname
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/yourname
+
+copyright: 'Copyright &copy; 2025 Your Name'

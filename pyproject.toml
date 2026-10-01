@@ -1,0 +1,90 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-handbook"
+version = "0.1.0"
+description = "A comprehensive Python handbook (Markdown source, HTML + PDF output)"
+readme = "README.md"
+authors = [{name = "Your Name", email = "you@example.com"}]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Documentation",
+    "Topic :: Education",
+]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "mkdocs-material",
+    "mkdocstrings[python]",
+    "pymdown-extensions",
+    "sphinx",
+    "sphinx-book-theme",
+    "myst-parser",
+    "pytest",
+    "pytest-doctestplus",
+    "ruff",
+    "black",
+    "pre-commit",
+    "towncrier",
+    "twine",
+    "build",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["python_handbook*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+select = ["E", "F", "I", "W", "UP", "B", "C4", "SIM", "T20"]
+ignore = []
+fix = true
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+include = "\\.pyi?$"
+
+[tool.pytest.ini_options]
+doctest_modules = ["docs"]
+pythonpath = ["src"]
+addopts = "--doctest-modules -q"
+
+[tool.mkdocstrings]
+default_handler = "python"
+handlers = {python = {paths = ["src"]}}
+
+[tool.towncrier]
+package = "python_handbook"
+package_dir = "src"
+directory = "changelog"
+filename = "CHANGELOG.md"
+version_format = "{version} ({project_date})"
+style = "markdown"
+template = "towncrier_template.md"
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
